@@ -7,24 +7,16 @@ import {
   NavbarItem,
   NavbarMenuItem,
 } from "@heroui/navbar";
-import { Button } from "@heroui/button";
-import { Kbd } from "@heroui/kbd";
 import { Link } from "@heroui/link";
 import { Input } from "@heroui/input";
 import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
+import { button as buttonStyles } from "@heroui/theme";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
-import {
-  TwitterIcon,
-  GithubIcon,
-  DiscordIcon,
-  HeartFilledIcon,
-  SearchIcon,
-  Logo,
-} from "@/components/icons";
+import { GithubIcon, SearchIcon, Logo } from "@/components/icons";
 
 export const Navbar = () => {
   const searchInput = (
@@ -34,11 +26,6 @@ export const Navbar = () => {
         inputWrapper: "bg-default-100",
         input: "text-sm",
       }}
-      endContent={
-        <Kbd className="hidden lg:inline-block" keys={["command"]}>
-          K
-        </Kbd>
-      }
       labelPlacement="outside"
       placeholder="Search..."
       startContent={
@@ -50,13 +37,18 @@ export const Navbar = () => {
 
   return (
     <HeroUINavbar maxWidth="xl" position="sticky">
-      <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
+      <NavbarContent className="basis-1/5 sm:basis-1/3" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
-          <NextLink className="flex justify-start items-center gap-1" href="/">
-            <Logo />
+          <NextLink className="flex justify-start items-center gap-2" href="/">
+            <Logo height={40} width={70} />
             <p className="font-bold text-inherit">Write It</p>
           </NextLink>
         </NavbarBrand>
+      </NavbarContent>
+      <NavbarContent
+        className="hidden sm:flex basis-1/5 sm:basis-1/3"
+        justify="center"
+      >
         <ul className="hidden lg:flex gap-4 justify-start ml-2">
           {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href}>
@@ -74,9 +66,8 @@ export const Navbar = () => {
           ))}
         </ul>
       </NavbarContent>
-
       <NavbarContent
-        className="hidden sm:flex basis-1/5 sm:basis-full"
+        className="hidden sm:flex basis-1/5 sm:basis-1/3"
         justify="end"
       >
         <NavbarItem className="hidden sm:flex gap-2">
@@ -84,8 +75,30 @@ export const Navbar = () => {
             <GithubIcon className="text-default-500" />
           </Link>
           <ThemeSwitch />
+          <Link
+            isExternal
+            className={buttonStyles({
+              color: "primary",
+              radius: "sm",
+              variant: "bordered",
+            })}
+            href={siteConfig.links.docs}
+          >
+            Log in
+          </Link>
+          <Link
+            isExternal
+            className={buttonStyles({
+              color: "primary",
+              radius: "sm",
+              variant: "solid",
+            })}
+            href={siteConfig.links.docs}
+          >
+            Create account
+          </Link>
         </NavbarItem>
-        <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
+        {/* <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem> */}
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
