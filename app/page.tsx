@@ -1,11 +1,17 @@
-import { title } from "@/components/primitives";
+import EmailSubs from "@/components/email-subs";
+import { title, subtitle } from "@/components/primitives";
 
 export default function Home() {
   return (
-    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="inline-block max-w-lg text-center justify-center">
+    <div className="flex flex-col justify-center gap-20 py-8 md:py-10">
+      <section className="flex flex-col items-center justify-center text-center gap-4">
         <h1 className={title()}>Inside design: Stories and interviews</h1>
-      </div>
-    </section>
+        <p className={subtitle()}>
+          Subscribe to learn about new product features, the latest in
+          technology, and updates
+        </p>
+        <EmailSubs />
+      </section>
+    </div>
   );
 }
