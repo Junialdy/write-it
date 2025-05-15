@@ -27,6 +27,14 @@ const config = {
             focus: "#3A04FF",
           },
         },
+        light: {
+          colors: {
+            primary: {
+              DEFAULT: "#3A04FF",
+            },
+            focus: "#3A04FF",
+          },
+        },
       },
     }),
   ],
