@@ -1,3 +1,4 @@
+import BlogCard from "@/components/blog-card";
 import EmailSubs from "@/components/email-subs";
 import { title, subtitle } from "@/components/primitives";
 
@@ -12,6 +13,13 @@ export default function Home() {
         </p>
         <EmailSubs />
       </section>
+      <article className="flex flex-col gap-4">
+        <h2 className={title({ size: "xs" })}>Recent blog posts</h2>
+        <div className="grid grid-cols-2 grid-rows-3">
+          <BlogCard />
+          <h2>abasd</h2>
+        </div>
+      </article>
     </div>
   );
 }
