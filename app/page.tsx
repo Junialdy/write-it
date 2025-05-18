@@ -16,7 +16,7 @@ export default function Home() {
       </section>
       <article className="flex flex-col gap-4">
         <h2 className={title({ size: "xs" })}>Recent blog posts</h2>
-        <div className="grid grid-cols-2 grid-rows-3 gap-8">
+        <div className="grid grid-cols-1 auto-rows-auto md:grid-cols-2 md:grid-rows-3 gap-8">
           {blogs.map((blog, index) => {
             const commonProps = {
               author: blog.author,
@@ -30,7 +30,7 @@ export default function Home() {
               <BlogCard
                 {...commonProps}
                 key={blog.title}
-                className="row-span-3"
+                className="row-span-1 sm:row-span-3"
               />
             ) : (
               <BlogCard {...commonProps} key={blog.title} isRow />

@@ -25,11 +25,11 @@ export default function BlogCard({
 }: BlogCardProp) {
   return (
     <Card
-      className={`bg-transparent flex ${isRow ? "flex-row" : "flex-col"} gap-8 ${className}`}
+      className={`bg-transparent flex ${isRow ? "min-[470px]:flex-row" : "flex-col"} gap-8 ${className} h-full`}
       radius="none"
       shadow="none"
     >
-      <Link className="w-full" href="#">
+      <Link className="w-full h-auto" href="#">
         <Image
           alt="Thumbnail blog post"
           height={0}
@@ -56,10 +56,15 @@ export default function BlogCard({
           className="flex gap-6 justify-between text-default-900 hover:text-primary transition"
           href="https://github.com/heroui-inc/heroui"
         >
-          <h3 className={`${isRow ? "text-xl" : "text-2xl"} font-medium`}>
+          <h3
+            className={`${isRow ? "text-xl" : "text-2xl"} font-medium line-clamp-2`}
+          >
             {title}
           </h3>
-          {!isRow && <ArrowUpRight size={30} />}
+          <ArrowUpRight
+            className={isRow ? "hidden max-[470px]:inline" : ""}
+            size={30}
+          />
         </Link>
         <p className="text-default-900 line-clamp-2">{desc}</p>
         <div className="flex flex-row gap-3 pt-2">
