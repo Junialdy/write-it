@@ -53,16 +53,16 @@ export default function BlogCard({
           &#8226; {date}
         </p>
         <Link
-          className="flex gap-6 justify-between text-default-900 hover:text-primary transition"
+          className="flex gap-4 justify-between text-default-900 w-full hover:text-primary transition"
           href="https://github.com/heroui-inc/heroui"
         >
           <h3
-            className={`${isRow ? "text-xl" : "text-2xl"} font-medium line-clamp-2`}
+            className={`${isRow ? "text-xl" : "text-2xl"} w-11/12 font-medium line-clamp-2`}
           >
             {title}
           </h3>
           <ArrowUpRight
-            className={isRow ? "hidden max-[470px]:inline" : ""}
+            className={isRow ? "hidden max-[470px]:inline w-1/12" : ""}
             size={30}
           />
         </Link>
