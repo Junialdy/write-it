@@ -1,3 +1,12 @@
+export const tocs = [
+  "Introduction",
+  "Choosing the best structure",
+  "How to work well together",
+  "What legal agreements you need",
+  "More resources",
+  "Conclusion",
+];
+
 export const blogs = [
   {
     author: "Olivia Rhye",

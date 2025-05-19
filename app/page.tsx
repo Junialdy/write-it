@@ -17,7 +17,7 @@ export default function Home() {
         </p>
         <EmailSubs />
       </section>
-      <article className="flex flex-col gap-4">
+      <section className="flex flex-col gap-4">
         <h2 className={title({ size: "xs" })}>Recent blog posts</h2>
         <div className="grid grid-cols-1 auto-rows-auto md:grid-cols-2 md:grid-rows-3 gap-8">
           {blogs.map((blog, index) => {
@@ -40,8 +40,8 @@ export default function Home() {
             );
           })}
         </div>
-      </article>
-      <article className="flex flex-col gap-4">
+      </section>
+      <section className="flex flex-col gap-4">
         <h2 className={title({ size: "xs" })}>All blog posts</h2>
         <div className="grid grid-cols-1 auto-rows-auto md:grid-cols-3 md:grid-rows-2 gap-8">
           {blogs.map((blog) => {
@@ -56,7 +56,7 @@ export default function Home() {
             return <BlogCard {...commonProps} key={blog.title} />;
           })}
         </div>
-      </article>
+      </section>
       <div className="flex flex-col gap-8 w-full items-center">
         <Divider />
         <Pagination

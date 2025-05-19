@@ -25,11 +25,12 @@ export default function BlogCard({
 }: BlogCardProp) {
   return (
     <Card
+      as={"article"}
       className={`bg-transparent flex ${isRow ? "min-[470px]:flex-row" : "flex-col"} gap-8 ${className} h-full`}
       radius="none"
       shadow="none"
     >
-      <Link className="w-full h-auto" href="#">
+      <Link className="w-full h-auto" href="/blog/a">
         <Image
           alt="Thumbnail blog post"
           height={0}
@@ -47,14 +48,14 @@ export default function BlogCard({
       </Link>
       <CardBody className="p-0 flex flex-col gap-3 w-full">
         <p className="text-sm font-medium text-default-500">
-          <Link className="text-default-500 text-sm" href="#">
+          <Link className="text-default-500 text-sm" href="/blog/a">
             {author}
           </Link>{" "}
           &#8226; {date}
         </p>
         <Link
           className="flex gap-4 justify-between text-default-900 w-full hover:text-primary transition"
-          href="https://github.com/heroui-inc/heroui"
+          href="/blog/a"
         >
           <h3
             className={`${isRow ? "text-xl" : "text-2xl"} w-11/12 font-medium line-clamp-2`}
