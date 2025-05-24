@@ -3,11 +3,21 @@ import { Button } from "@heroui/button";
 import { Image } from "@heroui/image";
 import { ArrowRight, Cat, Copy, Dog, Panda } from "lucide-react";
 import { Link } from "@heroui/link";
+import { getPayload } from "payload";
+import config from "@payload-config";
 
 import { tocs } from "@/lib/placeholder-data";
 import { title, subtitle } from "@/components/primitives";
 
-export default function BlogPost() {
+type Args = {
+  params: Promise<{
+    slug?: string;
+  }>;
+};
+
+export default async function BlogPost({ params: paramsPromise }: Args) {
+  // const { slug = "" } = await paramsPromise;
+
   return (
     <div className="flex flex-col gap-10">
       <section className="flex flex-col justify-center gap-4">
@@ -140,3 +150,13 @@ export default function BlogPost() {
     </div>
   );
 }
+
+// const queryPostBySlug = async ({ slug }: { slug: string }) => {
+//   const payload = await getPayload({ config });
+
+//   const result = await payload.findByID({
+//     collection: "posts",
+//     id: slug,
+//     depth: 2,
+//   });
+// };
