@@ -5,9 +5,11 @@ import { ArrowRight, Cat, Copy, Dog, Panda } from "lucide-react";
 import { Link } from "@heroui/link";
 import { getPayload } from "payload";
 import config from "@payload-config";
+import { RichText } from "@payloadcms/richtext-lexical/react";
 
 import { tocs } from "@/lib/placeholder-data";
 import { title, subtitle } from "@/components/primitives";
+import { formatDateTime } from "@/lib/formatDateTime";
 
 type Args = {
   params: Promise<{
@@ -16,14 +18,13 @@ type Args = {
 };
 
 export default async function BlogPost({ params: paramsPromise }: Args) {
-  // const { slug = "" } = await paramsPromise;
+  const { slug = "" } = await paramsPromise;
+  const post = await queryPostBySlug({ slug });
 
   return (
     <div className="flex flex-col gap-10">
       <section className="flex flex-col justify-center gap-4">
-        <h1 className={title()}>
-          How to run a successful business with your partner (and stay together)
-        </h1>
+        <h1 className={title()}>{post.title}</h1>
         <p className={subtitle()}>
           {" "}
           Starting a business with your spouse or sifnificant other is an
@@ -46,15 +47,23 @@ export default async function BlogPost({ params: paramsPromise }: Args) {
           }}
           width={0}
         />
+        {/* {console.log(post)} */}
         <CardFooter className="justify-between items-end overflow-hidden px-6 py-4 absolute bottom-0 w-full z-10">
           <div className="flex flex-row gap-16">
             <div className="flex flex-col gap-2">
               <p className="text-tiny text-white/80">Written by</p>
-              <p className="text-medium text-white">Amelie Laurent</p>
+              <p className="text-medium text-white">
+                {post.populatedAuthors?.[0]?.name ?? "admin"}
+              </p>
             </div>
             <div className="flex flex-col gap-2">
               <p className="text-tiny text-white/80">Published on</p>
-              <p className="text-medium text-white">17 Jan 2022</p>
+              <time
+                className="text-medium text-white"
+                dateTime={post.createdAt}
+              >
+                {formatDateTime(post.createdAt)}
+              </time>
             </div>
           </div>
           <div className="flex flex-row justify-center gap-3">
@@ -107,6 +116,7 @@ export default async function BlogPost({ params: paramsPromise }: Args) {
           ))}
         </div>
         <div className="col-span-8 sm:col-span-5 flex flex-col gap-4">
+          <RichText data={post.content} />
           <h2 className={title({ size: "sm" })}>Introduction</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
@@ -151,12 +161,14 @@ export default async function BlogPost({ params: paramsPromise }: Args) {
   );
 }
 
-// const queryPostBySlug = async ({ slug }: { slug: string }) => {
-//   const payload = await getPayload({ config });
+const queryPostBySlug = async ({ slug }: { slug: string }) => {
+  const payload = await getPayload({ config });
 
-//   const result = await payload.findByID({
-//     collection: "posts",
-//     id: slug,
-//     depth: 2,
-//   });
-// };
+  const result = await payload.findByID({
+    collection: "posts",
+    id: slug,
+    depth: 2,
+  });
+
+  return result || null;
+};

@@ -1,4 +1,5 @@
-import { CollectionConfig } from "payload";
+import type { CollectionConfig } from "payload";
+
 import {
   // BlocksFeature,
   FixedToolbarFeature,
@@ -7,6 +8,8 @@ import {
   InlineToolbarFeature,
   lexicalEditor,
 } from "@payloadcms/richtext-lexical";
+
+import { populateAuthors } from "./hooks/populateAuthors";
 
 export const Posts: CollectionConfig = {
   slug: "posts",
@@ -116,4 +119,7 @@ export const Posts: CollectionConfig = {
       ],
     },
   ],
+  hooks: {
+    afterRead: [populateAuthors],
+  },
 };
