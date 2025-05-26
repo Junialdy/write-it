@@ -115,46 +115,8 @@ export default async function BlogPost({ params: paramsPromise }: Args) {
             </Link>
           ))}
         </div>
-        <div className="col-span-8 sm:col-span-5 flex flex-col gap-4">
-          <RichText data={post.content} />
-          <h2 className={title({ size: "sm" })}>Introduction</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-            suscipit turpis sit amet rhoncus iaculis. Integer accumsan, massa id
-            hendrerit cursus, nunc augue tristique lectus, tincidunt elementum
-            velit augue non enim. Integer rutrum porta eros. Phasellus dapibus,
-            nulla non mollis sagittis, risus purus dignissim nunc, at vulputate
-            odio tortor quis quam. Maecenas ullamcorper luctus metus nec rutrum.
-            In ut elit at ex
-          </p>
-          <p>
-            Phasellus quis elit eu leo facilisis mattis. Nulla facilisi.
-            Curabitur tristique lectus nisi, sed auctor mi sollicitudin et.
-            Suspendisse dictum, turpis et suscipit faucibus, mi leo vehicula
-            diam, sed condimentum sem magna ac odio. Aliquam quis enim id nulla
-            hendrerit fringilla a in est. Nam et eleifend nunc, in rutrum lorem.
-            Vivamus justo dui, accumsan eu tellus vitae, egestas lacinia felis
-            nulla.
-          </p>
-          <h2 className={title({ size: "sm" })}>Conclusion</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-            suscipit turpis sit amet rhoncus iaculis. Integer accumsan, massa id
-            hendrerit cursus, nunc augue tristique lectus, tincidunt elementum
-            velit augue non enim. Integer rutrum porta eros. Phasellus dapibus,
-            nulla non mollis sagittis, risus purus dignissim nunc, at vulputate
-            odio tortor quis quam. Maecenas ullamcorper luctus metus nec rutrum.
-            In ut elit at ex
-          </p>
-          <p>
-            Phasellus quis elit eu leo facilisis mattis. Nulla facilisi.
-            Curabitur tristique lectus nisi, sed auctor mi sollicitudin et.
-            Suspendisse dictum, turpis et suscipit faucibus, mi leo vehicula
-            diam, sed condimentum sem magna ac odio. Aliquam quis enim id nulla
-            hendrerit fringilla a in est. Nam et eleifend nunc, in rutrum lorem.
-            Vivamus justo dui, accumsan eu tellus vitae, egestas lacinia felis
-            nulla.
-          </p>
+        <div className="col-span-8 sm:col-span-5">
+          <RichText className="payload-richtext" data={post.content} />
         </div>
       </section>
     </div>

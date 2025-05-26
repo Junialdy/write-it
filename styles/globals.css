@@ -2,14 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-size: unset;
-    font-weight: unset;
+.payload-richtext {
+  h2:first-of-type {
+    @apply text-3xl lg:text-4xl mt-0 mb-4 font-bold;
+  }
+
+  h2 {
+    @apply text-3xl lg:text-4xl mt-10 mb-4 font-bold;
+  }
+
+  p {
+    @apply mb-5 mt-0;
+  }
+
+  blockquote {
+    @apply mx-8 my-10 border-l-2 pl-4 border-primary;
+  }
+
+  ol {
+    @apply my-4 pl-10 list-decimal;
+  }
+
+  ul {
+    @apply my-4 pl-10 list-disc;
+  }
+
+  a {
+    @apply font-medium underline text-primary;
+  }
+
+  p:has(code) {
+    @apply border-1 border-primary px-8 py-4 my-8 rounded bg-default-50/50;
+  }
+
+  code {
+    @apply font-[monospace];
   }
 }
