@@ -9,7 +9,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --fix",
-    "generate:types": "payload generate:types"
+    "generate:types": "payload generate:types",
+    "generate:importmap": "payload generate:importmap"
   },
   "dependencies": {
     "@heroui/button": "2.2.19",
@@ -33,6 +34,7 @@
     "@payloadcms/next": "^3.38.0",
     "@payloadcms/payload-cloud": "^3.38.0",
     "@payloadcms/richtext-lexical": "^3.38.0",
+    "@payloadcms/ui": "3.38.0",
     "@react-aria/ssr": "3.9.8",
     "@react-aria/visually-hidden": "3.8.22",
     "clsx": "2.1.1",

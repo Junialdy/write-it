@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+.slug-field-component {
+  .label-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .lock-button {
+    margin: 0;
+    padding-bottom: 0.3125rem;
+  }
+}
+
 .payload-richtext {
   h2:first-of-type {
     @apply text-3xl lg:text-4xl mt-0 mb-4 font-bold;
