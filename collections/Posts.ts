@@ -10,7 +10,7 @@ import {
 } from "@payloadcms/richtext-lexical";
 
 import { populateAuthors } from "./hooks/populateAuthors";
-import { slugField } from "@/lib/slug";
+import { slugField } from "@/components/slug/slug";
 
 export const Posts: CollectionConfig = {
   slug: "posts",
