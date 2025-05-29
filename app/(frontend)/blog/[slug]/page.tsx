@@ -126,11 +126,14 @@ export default async function BlogPost({ params: paramsPromise }: Args) {
 const queryPostBySlug = async ({ slug }: { slug: string }) => {
   const payload = await getPayload({ config });
 
-  const result = await payload.findByID({
+  const result = await payload.find({
     collection: "posts",
-    id: slug,
-    depth: 2,
+    where: {
+      slug: {
+        equals: slug,
+      },
+    },
   });
 
-  return result || null;
+  return result.docs?.[0] || null;
 };
